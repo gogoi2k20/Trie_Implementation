@@ -1,0 +1,54 @@
+class Node{
+    public:
+    Node* links[26]; 
+    bool flag=false;  
+    public:
+    
+    bool containsKey(char c){
+        return (links[c-'a']!=NULL);  
+    }
+    
+    void put(char c, Node* node){
+        links[c-'a']=node;  
+    }
+    Node* getKey(char c){
+        return links[c-'a']; 
+    }
+    bool isEnd(char c){
+        return (links[c-'a']); 
+    }
+    void setEnd(){
+        flag=1; 
+    }
+}; 
+class Trie{
+    public:
+    Trie(){
+        Node* root= new Node();  
+    }
+    // will be called from outside of this class
+    void dictionaryForm(vector<string>& words){
+           Node* node=root; 
+           for(auto &it:words){
+            string s=it;  
+            for(auto &jt:s){
+                if(containsKey(jt)==false){
+                    node->put(jt,new Node()); 
+                }
+                node=node->getKey(jt); 
+            }
+            node->setEnd();  
+        }  
+    }
+    bool searchPrefix(string s){
+        Node* node=root;  
+        for(auto &it:s){
+            if(node->containsKey(it)==false){
+                return false; 
+            }
+        }
+        return node->isEnd;  
+        
+    }
+    
+};  

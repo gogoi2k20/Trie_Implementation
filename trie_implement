@@ -14,11 +14,12 @@ class Node{
     Node* getKey(char c){
         return links[c-'a']; 
     }
-    bool isEnd(char c){
-        return (links[c-'a']); 
-    }
+
     void setEnd(){
         flag=1; 
+    }
+     bool isEnd(){
+        return flag; 
     }
 }; 
 class Trie{

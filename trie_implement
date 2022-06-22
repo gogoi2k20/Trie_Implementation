@@ -30,8 +30,9 @@ class Trie{
     }
     // will be called from outside of this class
     void dictionaryForm(vector<string>& words){
-           Node* node=root; 
+           
            for(auto &it:words){
+            Node* node=root; 
             string s=it;  
             for(auto &jt:s){
                 if(node->containsKey(jt)==false){

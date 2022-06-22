@@ -48,6 +48,7 @@ class Trie{
             if(node->containsKey(it)==false){
                 return false; 
             }
+            node=node->getKey(it); 
         }
         return node->isEnd();  
         

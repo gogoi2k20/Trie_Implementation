@@ -24,8 +24,9 @@ class Node{
 }; 
 class Trie{
     public:
+    Node* root; 
     Trie(){
-        Node* root= new Node();  
+        root= new Node();  
     }
     // will be called from outside of this class
     void dictionaryForm(vector<string>& words){
@@ -33,7 +34,7 @@ class Trie{
            for(auto &it:words){
             string s=it;  
             for(auto &jt:s){
-                if(containsKey(jt)==false){
+                if(node->containsKey(jt)==false){
                     node->put(jt,new Node()); 
                 }
                 node=node->getKey(jt); 
@@ -48,7 +49,7 @@ class Trie{
                 return false; 
             }
         }
-        return node->isEnd;  
+        return node->isEnd();  
         
     }
     
